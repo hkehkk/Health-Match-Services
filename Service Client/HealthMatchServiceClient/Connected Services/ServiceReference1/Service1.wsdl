@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" />
+      <xs:element name="GetData">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="value" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDataResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetDataResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetClinic">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="id" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetClinicResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="GetClinicResult" nillable="true" type="q1:Clinic" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddClinic">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="clinic" nillable="true" type="q2:Clinic" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddClinicResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="AddClinicResult" nillable="true" type="q3:Clinic" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetClinics">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetClinicsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="GetClinicsResult" nillable="true" type="q4:ArrayOfClinic" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDoctor">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="id" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDoctorResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="GetDoctorResult" nillable="true" type="q5:Doctor" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddDoctor">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="doctor" nillable="true" type="q6:Doctor" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddDoctorResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="AddDoctorResult" nillable="true" type="q7:Doctor" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDoctors">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDoctorsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="GetDoctorsResult" nillable="true" type="q8:ArrayOfDoctor" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetService">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="id" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetServiceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="GetServiceResult" nillable="true" type="q9:Service" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddService">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="service" nillable="true" type="q10:Service" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddServiceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="AddServiceResult" nillable="true" type="q11:Service" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetServices">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetServicesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="GetServicesResult" nillable="true" type="q12:ArrayOfService" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetInsuranceCompany">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="id" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetInsuranceCompanyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="GetInsuranceCompanyResult" nillable="true" type="q13:InsuranceCompany" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddInsuranceCompany">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="insComp" nillable="true" type="q14:InsuranceCompany" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddInsuranceCompanyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="AddInsuranceCompanyResult" nillable="true" type="q15:InsuranceCompany" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetInsuranceCompanies">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetInsuranceCompaniesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="GetInsuranceCompaniesResult" nillable="true" type="q16:ArrayOfInsuranceCompany" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="id" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="GetUserResult" nillable="true" type="q17:User" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="user" nillable="true" type="q18:User" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="AddUserResult" nillable="true" type="q19:User" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUsers">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUsersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" minOccurs="0" name="GetUsersResult" nillable="true" type="q20:ArrayOfUser" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HealthMatchService.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="Clinic">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClinicId" type="xs:int" />
+          <xs:element minOccurs="0" name="ClinicName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Service" nillable="true" type="tns:Service" />
+          <xs:element minOccurs="0" name="ServiceId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Zipcode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Clinic" nillable="true" type="tns:Clinic" />
+      <xs:complexType name="Service">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ServiceId" type="xs:int" />
+          <xs:element minOccurs="0" name="ServiceType" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Service" nillable="true" type="tns:Service" />
+      <xs:complexType name="ArrayOfClinic">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Clinic" nillable="true" type="tns:Clinic" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfClinic" nillable="true" type="tns:ArrayOfClinic" />
+      <xs:complexType name="Doctor">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Clinic" nillable="true" type="tns:Clinic" />
+          <xs:element minOccurs="0" name="ClinicId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="DoctorId" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Treatments" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TypeOfPhysician" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Doctor" nillable="true" type="tns:Doctor" />
+      <xs:complexType name="ArrayOfDoctor">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Doctor" nillable="true" type="tns:Doctor" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDoctor" nillable="true" type="tns:ArrayOfDoctor" />
+      <xs:complexType name="ArrayOfService">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Service" nillable="true" type="tns:Service" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfService" nillable="true" type="tns:ArrayOfService" />
+      <xs:complexType name="InsuranceCompany">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Clinic" nillable="true" type="tns:Clinic" />
+          <xs:element minOccurs="0" name="ClinicId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="InsuranceId" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="InsuranceCompany" nillable="true" type="tns:InsuranceCompany" />
+      <xs:complexType name="ArrayOfInsuranceCompany">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="InsuranceCompany" nillable="true" type="tns:InsuranceCompany" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfInsuranceCompany" nillable="true" type="tns:ArrayOfInsuranceCompany" />
+      <xs:complexType name="User">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InsuranceCompany" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReasonForVisit" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserId" type="xs:int" />
+          <xs:element minOccurs="0" name="Zipcode" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="User" nillable="true" type="tns:User" />
+      <xs:complexType name="ArrayOfUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetClinic_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClinic" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetClinic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClinicResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddClinic_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddClinic" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddClinic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddClinicResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetClinics_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClinics" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetClinics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClinicsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDoctor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDoctor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddDoctor_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDoctor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddDoctor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDoctorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDoctors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctors" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDoctors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetService_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetService" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddService_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddService" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetServices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServices" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetServices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetInsuranceCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInsuranceCompany" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetInsuranceCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInsuranceCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddInsuranceCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddInsuranceCompany" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddInsuranceCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddInsuranceCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetInsuranceCompanies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInsuranceCompanies" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetInsuranceCompanies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInsuranceCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataResponse" message="tns:IService1_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClinic">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetClinic" message="tns:IService1_GetClinic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetClinicResponse" message="tns:IService1_GetClinic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddClinic">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddClinic" message="tns:IService1_AddClinic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddClinicResponse" message="tns:IService1_AddClinic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClinics">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetClinics" message="tns:IService1_GetClinics_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetClinicsResponse" message="tns:IService1_GetClinics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDoctor" message="tns:IService1_GetDoctor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDoctorResponse" message="tns:IService1_GetDoctor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDoctor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddDoctor" message="tns:IService1_AddDoctor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddDoctorResponse" message="tns:IService1_AddDoctor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDoctors" message="tns:IService1_GetDoctors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDoctorsResponse" message="tns:IService1_GetDoctors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetService" message="tns:IService1_GetService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetServiceResponse" message="tns:IService1_GetService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddService" message="tns:IService1_AddService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddServiceResponse" message="tns:IService1_AddService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetServices" message="tns:IService1_GetServices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetServicesResponse" message="tns:IService1_GetServices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInsuranceCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetInsuranceCompany" message="tns:IService1_GetInsuranceCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetInsuranceCompanyResponse" message="tns:IService1_GetInsuranceCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddInsuranceCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddInsuranceCompany" message="tns:IService1_AddInsuranceCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddInsuranceCompanyResponse" message="tns:IService1_AddInsuranceCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInsuranceCompanies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetInsuranceCompanies" message="tns:IService1_GetInsuranceCompanies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetInsuranceCompaniesResponse" message="tns:IService1_GetInsuranceCompanies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUser" message="tns:IService1_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUserResponse" message="tns:IService1_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddUser" message="tns:IService1_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddUserResponse" message="tns:IService1_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUsers" message="tns:IService1_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUsersResponse" message="tns:IService1_GetUsers_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClinic">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetClinic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddClinic">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddClinic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClinics">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetClinics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctor">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDoctor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDoctor">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddDoctor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctors">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDoctors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetService">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddService">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServices">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetServices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInsuranceCompany">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetInsuranceCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddInsuranceCompany">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddInsuranceCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInsuranceCompanies">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetInsuranceCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:58706/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,12 @@
+C:\Users\Hannah Kops\Documents\Helena College Spring 2022\Portfolio\HealthMatch Web Services\Service\HealthMatchService\obj\Debug\HealthMatchService.csproj.AssemblyReference.cache
+C:\Users\Hannah Kops\Documents\Helena College Spring 2022\Portfolio\HealthMatch Web Services\Service\HealthMatchService\obj\Debug\HealthMatchService.csproj.CoreCompileInputs.cache
+C:\Users\Hannah Kops\Documents\Helena College Spring 2022\Portfolio\HealthMatch Web Services\Service\HealthMatchService\bin\HealthMatchService.dll.config
+C:\Users\Hannah Kops\Documents\Helena College Spring 2022\Portfolio\HealthMatch Web Services\Service\HealthMatchService\bin\HealthMatchService.dll
+C:\Users\Hannah Kops\Documents\Helena College Spring 2022\Portfolio\HealthMatch Web Services\Service\HealthMatchService\bin\HealthMatchService.pdb
+C:\Users\Hannah Kops\Documents\Helena College Spring 2022\Portfolio\HealthMatch Web Services\Service\HealthMatchService\bin\EntityFramework.dll
+C:\Users\Hannah Kops\Documents\Helena College Spring 2022\Portfolio\HealthMatch Web Services\Service\HealthMatchService\bin\EntityFramework.SqlServer.dll
+C:\Users\Hannah Kops\Documents\Helena College Spring 2022\Portfolio\HealthMatch Web Services\Service\HealthMatchService\bin\EntityFramework.xml
+C:\Users\Hannah Kops\Documents\Helena College Spring 2022\Portfolio\HealthMatch Web Services\Service\HealthMatchService\bin\EntityFramework.SqlServer.xml
+C:\Users\Hannah Kops\Documents\Helena College Spring 2022\Portfolio\HealthMatch Web Services\Service\HealthMatchService\obj\Debug\HealthMatchService.csproj.CopyComplete
+C:\Users\Hannah Kops\Documents\Helena College Spring 2022\Portfolio\HealthMatch Web Services\Service\HealthMatchService\obj\Debug\HealthMatchService.dll
+C:\Users\Hannah Kops\Documents\Helena College Spring 2022\Portfolio\HealthMatch Web Services\Service\HealthMatchService\obj\Debug\HealthMatchService.pdb
